@@ -3,894 +3,796 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Desarrollador Web Junior</title>
+    <title>DevBlog - Desarrollador Web Junior</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <!-- Preloader -->
-    <div id="preloader">
+    <div class="preloader" id="preloader">
         <div class="preloader-content">
-            <div class="cyber-loader">
-                <div class="cyber-loader-inner">
-                    <div class="cyber-loader-line"></div>
-                    <div class="cyber-loader-line"></div>
-                    <div class="cyber-loader-line"></div>
-                    <div class="cyber-loader-line"></div>
+            <div class="logo-loader">
+                <span class="logo-text">DevBlog</span>
+                <div class="loader-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
             </div>
-            <div class="loading-text">
-                <span class="loading-letter">C</span>
-                <span class="loading-letter">A</span>
-                <span class="loading-letter">R</span>
-                <span class="loading-letter">G</span>
-                <span class="loading-letter">A</span>
-                <span class="loading-letter">N</span>
-                <span class="loading-letter">D</span>
-                <span class="loading-letter">O</span>
-            </div>
-            <div class="loading-progress">
-                <div class="progress-bar"></div>
-                <span class="progress-text">0%</span>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
             </div>
         </div>
     </div>
 
-    <!-- Cursor personalizado -->
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
-
-    <!-- Partículas de fondo -->
-    <div id="particles-container">
-        <canvas id="particles-canvas"></canvas>
+    <!-- Background Effects -->
+    <div class="background-effects">
+        <div class="particles-container" id="particles"></div>
+        <div class="gradient-orbs">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+            <div class="orb orb-4"></div>
+        </div>
+        <div class="grid-pattern"></div>
     </div>
 
-    <!-- Grid de fondo -->
-    <div class="cyber-grid"></div>
-
-    <!-- Navegación -->
+    <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
-                <div class="logo-container">
-                    <span class="logo-text">DEV</span>
-                    <span class="logo-accent">.</span>
-                    <div class="logo-glow"></div>
+            <div class="nav-brand">
+                <div class="brand-logo">
+                    <span class="brand-icon">
+                        <i class="fas fa-code"></i>
+                    </span>
+                    <span class="brand-text">DevBlog</span>
                 </div>
             </div>
+            
             <ul class="nav-menu" id="nav-menu">
-                <li><a href="#home" class="nav-link" data-text="Inicio">Inicio</a></li>
-                <li><a href="#about" class="nav-link" data-text="Sobre Mí">Sobre Mí</a></li>
-                <li><a href="#skills" class="nav-link" data-text="Habilidades">Habilidades</a></li>
-                <li><a href="#projects" class="nav-link" data-text="Proyectos">Proyectos</a></li>
-                <li><a href="#experience" class="nav-link" data-text="Experiencia">Experiencia</a></li>
-                <li><a href="#education" class="nav-link" data-text="Educación">Educación</a></li>
-                <li><a href="#contact" class="nav-link" data-text="Contacto">Contacto</a></li>
+                <li class="nav-item">
+                    <a href="#home" class="nav-link active">
+                        <span class="link-icon"><i class="fas fa-home"></i></span>
+                        <span class="link-text">Inicio</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#articles" class="nav-link">
+                        <span class="link-icon"><i class="fas fa-newspaper"></i></span>
+                        <span class="link-text">Artículos</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#categories" class="nav-link">
+                        <span class="link-icon"><i class="fas fa-tags"></i></span>
+                        <span class="link-text">Categorías</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">
+                        <span class="link-icon"><i class="fas fa-user"></i></span>
+                        <span class="link-text">Sobre mí</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">
+                        <span class="link-icon"><i class="fas fa-envelope"></i></span>
+                        <span class="link-text">Contacto</span>
+                    </a>
+                </li>
             </ul>
-            <div class="nav-toggle" id="nav-toggle">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
+
+            <div class="nav-actions">
+                <button class="search-toggle" id="search-toggle">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="nav-toggle" id="nav-toggle">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Search Overlay -->
+        <div class="search-overlay" id="search-overlay">
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" placeholder="Buscar artículos..." class="search-input" id="search-input">
+                    <button class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div class="search-suggestions">
+                    <div class="suggestion-item">
+                        <i class="fas fa-clock"></i>
+                        <span>JavaScript ES6</span>
+                    </div>
+                    <div class="suggestion-item">
+                        <i class="fas fa-clock"></i>
+                        <span>React Hooks</span>
+                    </div>
+                    <div class="suggestion-item">
+                        <i class="fas fa-clock"></i>
+                        <span>CSS Grid</span>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
 
-    <!-- Sección Hero -->
-    <section id="home" class="hero">
-        <div class="hero-bg-animation"></div>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
         <div class="hero-content">
             <div class="hero-text">
-                <div class="hero-greeting">
-                    <span class="greeting-text">Hola, soy</span>
-                    <div class="greeting-line"></div>
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    <span>Desarrollador Web Junior</span>
                 </div>
                 <h1 class="hero-title">
-                    <span class="title-line">
-                        <span class="title-word" data-text="JUNIOR">JUNIOR</span>
-                    </span>
-                    <span class="title-line">
-                        <span class="title-word" data-text="DEVELOPER">DEVELOPER</span>
-                    </span>
+                    <span class="title-line">Bienvenido a mi</span>
+                    <span class="title-main">Blog de Desarrollo</span>
+                    <span class="title-subtitle">Compartiendo conocimiento y experiencias</span>
                 </h1>
-                <p class="hero-subtitle">
-                    <span class="subtitle-line">Desarrollador Junior apasionado por crear</span>
-                    <span class="subtitle-line">experiencias web innovadoras y aprender</span>
-                    <span class="subtitle-line">nuevas tecnologías cada día</span>
+                <p class="hero-description">
+                    Explora artículos sobre desarrollo web, tutoriales prácticos, 
+                    tips de programación y mi journey como desarrollador junior. 
+                    <span class="highlight-text">¡Aprendamos juntos!</span>
                 </p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">
-                        <span class="btn-text">Ver Proyectos</span>
-                        <div class="btn-bg"></div>
-                        <div class="btn-glow"></div>
-                    </a>
-                    <a href="#contact" class="btn btn-secondary">
-                        <span class="btn-text">Contactar</span>
-                        <div class="btn-bg"></div>
-                    </a>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="25">0</span>
+                        <span class="stat-label">Artículos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="1200">0</span>
+                        <span class="stat-label">Lectores</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="8">0</span>
+                        <span class="stat-label">Categorías</span>
+                    </div>
                 </div>
-                <div class="hero-social">
-                    <a href="#" class="social-icon" data-tooltip="GitHub">
-                        <i class="fab fa-github"></i>
-                        <div class="social-glow"></div>
+                <div class="hero-actions">
+                    <a href="#articles" class="btn btn-primary">
+                        <span class="btn-text">Explorar Artículos</span>
+                        <span class="btn-icon"><i class="fas fa-arrow-right"></i></span>
                     </a>
-                    <a href="#" class="social-icon" data-tooltip="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                        <div class="social-glow"></div>
-                    </a>
-                    <a href="#" class="social-icon" data-tooltip="Twitter">
-                        <i class="fab fa-twitter"></i>
-                        <div class="social-glow"></div>
+                    <a href="#newsletter" class="btn btn-secondary">
+                        <span class="btn-text">Suscribirse</span>
+                        <span class="btn-icon"><i class="fas fa-bell"></i></span>
                     </a>
                 </div>
             </div>
             <div class="hero-visual">
-                <div class="hologram-container">
-                    <div class="hologram-card" data-tilt>
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <i class="fas fa-code"></i>
-                                <span>Frontend</span>
-                                <div class="card-particles"></div>
-                            </div>
+                <div class="floating-card">
+                    <div class="card-header">
+                        <div class="card-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <span class="card-title">latest-post.md</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="code-line">
+                            <span class="code-comment">// Mi último artículo</span>
+                        </div>
+                        <div class="code-line">
+                            <span class="code-keyword">const</span>
+                            <span class="code-variable"> post</span>
+                            <span class="code-operator"> = </span>
+                            <span class="code-string">{</span>
+                        </div>
+                        <div class="code-line code-indent">
+                            <span class="code-property">title:</span>
+                            <span class="code-string"> "React Hooks Avanzados"</span>
+                            <span class="code-operator">,</span>
+                        </div>
+                        <div class="code-line code-indent">
+                            <span class="code-property">category:</span>
+                            <span class="code-string"> "React"</span>
+                            <span class="code-operator">,</span>
+                        </div>
+                        <div class="code-line code-indent">
+                            <span class="code-property">views:</span>
+                            <span class="code-number"> 1250</span>
+                            <span class="code-operator">,</span>
+                        </div>
+                        <div class="code-line">
+                            <span class="code-string">}</span>
                         </div>
                     </div>
-                    <div class="hologram-card" data-tilt>
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <i class="fas fa-server"></i>
-                                <span>Backend</span>
-                                <div class="card-particles"></div>
-                            </div>
-                        </div>
+                </div>
+                <div class="floating-elements">
+                    <div class="tech-icon" style="--delay: 0s">
+                        <i class="fab fa-js-square"></i>
                     </div>
-                    <div class="hologram-card" data-tilt>
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <i class="fas fa-mobile-alt"></i>
-                                <span>Mobile</span>
-                                <div class="card-particles"></div>
-                            </div>
-                        </div>
+                    <div class="tech-icon" style="--delay: 1s">
+                        <i class="fab fa-react"></i>
                     </div>
-                    <div class="hologram-center">
-                        <div class="center-orb">
-                            <div class="orb-ring"></div>
-                            <div class="orb-ring"></div>
-                            <div class="orb-ring"></div>
-                            <div class="orb-core"></div>
-                        </div>
+                    <div class="tech-icon" style="--delay: 2s">
+                        <i class="fab fa-css3-alt"></i>
+                    </div>
+                    <div class="tech-icon" style="--delay: 3s">
+                        <i class="fab fa-node-js"></i>
                     </div>
                 </div>
             </div>
         </div>
         <div class="scroll-indicator">
-            <div class="scroll-text">Scroll</div>
-            <div class="scroll-line"></div>
-            <div class="scroll-arrow">
-                <i class="fas fa-chevron-down"></i>
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
             </div>
+            <span class="scroll-text">Scroll</span>
         </div>
     </section>
 
-    <!-- Sección Sobre Mí -->
-    <section id="about" class="about">
-        <div class="section-bg"></div>
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number">01</span>
-                <h2 class="section-title">
-                    <span class="title-text">Sobre Mí</span>
-                    <div class="title-underline"></div>
-                </h2>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <div class="text-container">
-                        <p class="about-description">
-                            Soy un desarrollador web junior con gran pasión por la tecnología y 1 año de experiencia 
-                            creando proyectos personales y colaborando en desarrollos web. Me especializo en 
-                            tecnologías frontend modernas y estoy constantemente aprendiendo nuevas herramientas 
-                            para crecer profesionalmente en el mundo del desarrollo.
-                        </p>
-                        <div class="about-highlights">
-                            <div class="highlight-item">
-                                <i class="fas fa-rocket"></i>
-                                <span>Aprendizaje continuo</span>
-                            </div>
-                            <div class="highlight-item">
-                                <i class="fas fa-lightbulb"></i>
-                                <span>Pensamiento creativo</span>
-                            </div>
-                            <div class="highlight-item">
-                                <i class="fas fa-users"></i>
-                                <span>Trabajo en equipo</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="about-stats">
-                        <div class="stat-item">
-                            <div class="stat-number" data-target="15">0</div>
-                            <div class="stat-label">Proyectos</div>
-                            <div class="stat-bar"></div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number" data-target="1">0</div>
-                            <div class="stat-label">Año Exp.</div>
-                            <div class="stat-bar"></div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number" data-target="8">0</div>
-                            <div class="stat-label">Tecnologías</div>
-                            <div class="stat-bar"></div>
-                        </div>
-                    </div>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Filter Section -->
+        <section class="filter-section" id="articles">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Últimos Artículos</h2>
+                    <p class="section-subtitle">
+                        Descubre contenido fresco sobre desarrollo web, 
+                        tutoriales paso a paso y reflexiones sobre tecnología.
+                    </p>
                 </div>
-                <div class="about-visual">
-                    <div class="profile-container">
-                        <div class="profile-image">
-                            <div class="image-placeholder">
-                                <i class="fas fa-user-astronaut"></i>
-                                <div class="image-glow"></div>
-                            </div>
-                            <div class="profile-ring"></div>
-                            <div class="profile-ring"></div>
-                            <div class="profile-ring"></div>
-                        </div>
-                        <div class="floating-elements">
-                            <div class="floating-icon" style="--delay: 0s">
-                                <i class="fab fa-js-square"></i>
-                            </div>
-                            <div class="floating-icon" style="--delay: 1s">
-                                <i class="fab fa-react"></i>
-                            </div>
-                            <div class="floating-icon" style="--delay: 2s">
-                                <i class="fab fa-node-js"></i>
-                            </div>
-                            <div class="floating-icon" style="--delay: 3s">
-                                <i class="fab fa-python"></i>
-                            </div>
-                        </div>
+                
+                <div class="filter-controls">
+                    <div class="filter-tabs">
+                        <button class="filter-tab active" data-filter="all">
+                            <span class="tab-icon"><i class="fas fa-th"></i></span>
+                            <span class="tab-text">Todos</span>
+                        </button>
+                        <button class="filter-tab" data-filter="javascript">
+                            <span class="tab-icon"><i class="fab fa-js-square"></i></span>
+                            <span class="tab-text">JavaScript</span>
+                        </button>
+                        <button class="filter-tab" data-filter="react">
+                            <span class="tab-icon"><i class="fab fa-react"></i></span>
+                            <span class="tab-text">React</span>
+                        </button>
+                        <button class="filter-tab" data-filter="css">
+                            <span class="tab-icon"><i class="fab fa-css3-alt"></i></span>
+                            <span class="tab-text">CSS</span>
+                        </button>
+                        <button class="filter-tab" data-filter="tutorials">
+                            <span class="tab-icon"><i class="fas fa-graduation-cap"></i></span>
+                            <span class="tab-text">Tutoriales</span>
+                        </button>
+                    </div>
+                    
+                    <div class="view-controls">
+                        <button class="view-btn active" data-view="grid">
+                            <i class="fas fa-th-large"></i>
+                        </button>
+                        <button class="view-btn" data-view="list">
+                            <i class="fas fa-list"></i>
+                        </button>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Sección Habilidades -->
-    <section id="skills" class="skills">
-        <div class="section-bg"></div>
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number">02</span>
-                <h2 class="section-title">
-                    <span class="title-text">Habilidades Técnicas</span>
-                    <div class="title-underline"></div>
-                </h2>
-            </div>
-            <div class="skills-container">
-                <div class="skills-grid">
-                    <div class="skill-category" data-category="frontend">
-                        <div class="category-header">
-                            <div class="category-icon">
-                                <i class="fas fa-palette"></i>
+        <!-- Articles Grid -->
+        <section class="articles-section">
+            <div class="container">
+                <div class="articles-grid" id="articles-grid">
+                    <!-- Article 1 -->
+                    <article class="article-card" data-category="react">
+                        <div class="article-image">
+                            <img src="/placeholder.svg?height=200&width=350" alt="React Hooks Avanzados" loading="lazy">
+                            <div class="article-overlay">
+                                <div class="overlay-content">
+                                    <button class="read-btn">
+                                        <i class="fas fa-book-open"></i>
+                                        <span>Leer Artículo</span>
+                                    </button>
+                                </div>
                             </div>
-                            <h3>Frontend</h3>
-                            <div class="category-line"></div>
+                            <div class="article-category">React</div>
                         </div>
-                        <div class="skill-items">
-                            <div class="skill-item" data-skill="85">
-                                <div class="skill-info">
-                                    <i class="fab fa-html5"></i>
-                                    <span class="skill-name">HTML5</span>
-                                    <span class="skill-percentage">85%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress"></div>
-                                    <div class="skill-glow"></div>
-                                </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-date">
+                                    <i class="fas fa-calendar"></i>
+                                    15 Dic 2024
+                                </span>
+                                <span class="article-time">
+                                    <i class="fas fa-clock"></i>
+                                    8 min
+                                </span>
                             </div>
-                            <div class="skill-item" data-skill="80">
-                                <div class="skill-info">
-                                    <i class="fab fa-css3-alt"></i>
-                                    <span class="skill-name">CSS3</span>
-                                    <span class="skill-percentage">80%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress"></div>
-                                    <div class="skill-glow"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item" data-skill="70">
-                                <div class="skill-info">
-                                    <i class="fab fa-js-square"></i>
-                                    <span class="skill-name">JavaScript</span>
-                                    <span class="skill-percentage">70%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress"></div>
-                                    <div class="skill-glow"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item" data-skill="65">
-                                <div class="skill-info">
-                                    <i class="fab fa-react"></i>
-                                    <span class="skill-name">React</span>
-                                    <span class="skill-percentage">65%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress"></div>
-                                    <div class="skill-glow"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="skill-category" data-category="backend">
-                        <div class="category-header">
-                            <div class="category-icon">
-                                <i class="fas fa-server"></i>
-                            </div>
-                            <h3>Backend</h3>
-                            <div class="category-line"></div>
-                        </div>
-                        <div class="skill-items">
-                            <div class="skill-item" data-skill="60">
-                                <div class="skill-info">
-                                    <i class="fab fa-node-js"></i>
-                                    <span class="skill-name">Node.js</span>
-                                    <span class="skill-percentage">60%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress"></div>
-                                    <div class="skill-glow"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item" data-skill="55">
-                                <div class="skill-info">
-                                    <i class="fab fa-python"></i>
-                                    <span class="skill-name">Python</span>
-                                    <span class="skill-percentage">55%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress"></div>
-                                    <div class="skill-glow"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item" data-skill="50">
-                                <div class="skill-info">
-                                    <i class="fas fa-database"></i>
-                                    <span class="skill-name">MongoDB</span>
-                                    <span class="skill-percentage">50%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress"></div>
-                                    <div class="skill-glow"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item" data-skill="55">
-                                <div class="skill-info">
-                                    <i class="fas fa-code"></i>
-                                    <span class="skill-name">Express</span>
-                                    <span class="skill-percentage">55%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress"></div>
-                                    <div class="skill-glow"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="skill-category" data-category="tools">
-                        <div class="category-header">
-                            <div class="category-icon">
-                                <i class="fas fa-tools"></i>
-                            </div>
-                            <h3>Herramientas</h3>
-                            <div class="category-line"></div>
-                        </div>
-                        <div class="skill-items">
-                            <div class="skill-item" data-skill="75">
-                                <div class="skill-info">
-                                    <i class="fab fa-git-alt"></i>
-                                    <span class="skill-name">Git</span>
-                                    <span class="skill-percentage">75%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress"></div>
-                                    <div class="skill-glow"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item" data-skill="95">
-                                <div class="skill-info">
-                                    <i class="fas fa-graduation-cap"></i>
-                                    <span class="skill-name">Aprendizaje</span>
-                                    <span class="skill-percentage">95%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress"></div>
-                                    <div class="skill-glow"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item" data-skill="85">
-                                <div class="skill-info">
-                                    <i class="fas fa-users"></i>
-                                    <span class="skill-name">Trabajo en Equipo</span>
-                                    <span class="skill-percentage">85%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress"></div>
-                                    <div class="skill-glow"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item" data-skill="90">
-                                <div class="skill-info">
-                                    <i class="fas fa-lightbulb"></i>
-                                    <span class="skill-name">Creatividad</span>
-                                    <span class="skill-percentage">90%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress"></div>
-                                    <div class="skill-glow"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección Proyectos -->
-    <section id="projects" class="projects">
-        <div class="section-bg"></div>
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number">03</span>
-                <h2 class="section-title">
-                    <span class="title-text">Proyectos Destacados</span>
-                    <div class="title-underline"></div>
-                </h2>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card" data-project="1">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="#" class="project-link" data-tooltip="Ver Demo">
-                                    <i class="fas fa-external-link-alt"></i>
+                            <h3 class="article-title">
+                                <a href="#" class="article-link">
+                                    React Hooks Avanzados: useCallback y useMemo
                                 </a>
-                                <a href="#" class="project-link" data-tooltip="Ver Código">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="project-glow"></div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-number">01</div>
-                        <h3 class="project-title">Landing Page Responsiva</h3>
-                        <p class="project-description">
-                            Página de aterrizaje moderna y completamente responsiva para una startup tecnológica
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">HTML5</span>
-                            <span class="tech-tag">CSS3</span>
-                            <span class="tech-tag">JavaScript</span>
-                        </div>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <i class="fas fa-eye"></i>
-                                <span>1.2k views</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-star"></i>
-                                <span>4.8 rating</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-project="2">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="#" class="project-link" data-tooltip="Ver Demo">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                                <a href="#" class="project-link" data-tooltip="Ver Código">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="project-glow"></div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-number">02</div>
-                        <h3 class="project-title">Todo App con React</h3>
-                        <p class="project-description">
-                            Aplicación de tareas con funcionalidades CRUD y almacenamiento local
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">LocalStorage</span>
-                            <span class="tech-tag">CSS Modules</span>
-                        </div>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <i class="fas fa-eye"></i>
-                                <span>856 views</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-star"></i>
-                                <span>4.6 rating</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-project="3">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="#" class="project-link" data-tooltip="Ver Demo">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                                <a href="#" class="project-link" data-tooltip="Ver Código">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="project-glow"></div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-number">03</div>
-                        <h3 class="project-title">API REST con Node.js</h3>
-                        <p class="project-description">
-                            API backend para gestión de usuarios con autenticación y base de datos
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">Express</span>
-                            <span class="tech-tag">MongoDB</span>
-                        </div>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <i class="fas fa-eye"></i>
-                                <span>642 views</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-star"></i>
-                                <span>4.9 rating</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección Experiencia -->
-    <section id="experience" class="experience">
-        <div class="section-bg"></div>
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number">04</span>
-                <h2 class="section-title">
-                    <span class="title-text">Experiencia Profesional</span>
-                    <div class="title-underline"></div>
-                </h2>
-            </div>
-            <div class="timeline-container">
-                <div class="timeline">
-                    <div class="timeline-item" data-year="2024">
-                        <div class="timeline-dot">
-                            <div class="dot-inner"></div>
-                            <div class="dot-glow"></div>
-                        </div>
-                        <div class="timeline-content">
-                            <div class="timeline-date">2024 - Presente</div>
-                            <h3 class="timeline-title">Desarrollador Frontend Junior</h3>
-                            <h4 class="timeline-company">TechStart Solutions</h4>
-                            <p class="timeline-description">
-                                Desarrollo de interfaces de usuario con React y colaboración en proyectos de equipo. 
-                                Implementación de diseños responsivos y optimización de rendimiento.
+                            </h3>
+                            <p class="article-excerpt">
+                                Aprende a optimizar tus componentes React utilizando 
+                                useCallback y useMemo para mejorar el rendimiento...
                             </p>
-                            <div class="timeline-skills">
-                                <span class="timeline-skill">React</span>
-                                <span class="timeline-skill">TypeScript</span>
-                                <span class="timeline-skill">Sass</span>
+                            <div class="article-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">Hooks</span>
+                                <span class="tag">Performance</span>
+                            </div>
+                            <div class="article-footer">
+                                <div class="article-stats">
+                                    <span class="stat">
+                                        <i class="fas fa-eye"></i>
+                                        1.2k
+                                    </span>
+                                    <span class="stat">
+                                        <i class="fas fa-heart"></i>
+                                        89
+                                    </span>
+                                    <span class="stat">
+                                        <i class="fas fa-comment"></i>
+                                        12
+                                    </span>
+                                </div>
+                                <button class="bookmark-btn">
+                                    <i class="fas fa-bookmark"></i>
+                                </button>
                             </div>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="timeline-item" data-year="2023">
-                        <div class="timeline-dot">
-                            <div class="dot-inner"></div>
-                            <div class="dot-glow"></div>
+                    <!-- Article 2 -->
+                    <article class="article-card" data-category="javascript">
+                        <div class="article-image">
+                            <img src="/placeholder.svg?height=200&width=350" alt="JavaScript ES6" loading="lazy">
+                            <div class="article-overlay">
+                                <div class="overlay-content">
+                                    <button class="read-btn">
+                                        <i class="fas fa-book-open"></i>
+                                        <span>Leer Artículo</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="article-category">JavaScript</div>
                         </div>
-                        <div class="timeline-content">
-                            <div class="timeline-date">2023 - 2024</div>
-                            <h3 class="timeline-title">Desarrollador Freelance</h3>
-                            <h4 class="timeline-company">Proyectos Independientes</h4>
-                            <p class="timeline-description">
-                                Desarrollo de sitios web para pequeñas empresas y emprendedores. 
-                                Creación de más de 8 proyectos web usando tecnologías modernas.
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-date">
+                                    <i class="fas fa-calendar"></i>
+                                    12 Dic 2024
+                                </span>
+                                <span class="article-time">
+                                    <i class="fas fa-clock"></i>
+                                    6 min
+                                </span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="#" class="article-link">
+                                    Destructuring en JavaScript: Guía Completa
+                                </a>
+                            </h3>
+                            <p class="article-excerpt">
+                                Domina la sintaxis de destructuring en JavaScript 
+                                para escribir código más limpio y eficiente...
                             </p>
-                            <div class="timeline-skills">
-                                <span class="timeline-skill">HTML/CSS</span>
-                                <span class="timeline-skill">JavaScript</span>
-                                <span class="timeline-skill">WordPress</span>
+                            <div class="article-tags">
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">ES6</span>
+                                <span class="tag">Sintaxis</span>
+                            </div>
+                            <div class="article-footer">
+                                <div class="article-stats">
+                                    <span class="stat">
+                                        <i class="fas fa-eye"></i>
+                                        856
+                                    </span>
+                                    <span class="stat">
+                                        <i class="fas fa-heart"></i>
+                                        67
+                                    </span>
+                                    <span class="stat">
+                                        <i class="fas fa-comment"></i>
+                                        8
+                                    </span>
+                                </div>
+                                <button class="bookmark-btn">
+                                    <i class="fas fa-bookmark"></i>
+                                </button>
                             </div>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="timeline-item" data-year="2023">
-                        <div class="timeline-dot">
-                            <div class="dot-inner"></div>
-                            <div class="dot-glow"></div>
+                    <!-- Article 3 -->
+                    <article class="article-card" data-category="css">
+                        <div class="article-image">
+                            <img src="/placeholder.svg?height=200&width=350" alt="CSS Grid" loading="lazy">
+                            <div class="article-overlay">
+                                <div class="overlay-content">
+                                    <button class="read-btn">
+                                        <i class="fas fa-book-open"></i>
+                                        <span>Leer Artículo</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="article-category">CSS</div>
                         </div>
-                        <div class="timeline-content">
-                            <div class="timeline-date">2023</div>
-                            <h3 class="timeline-title">Estudiante de Desarrollo Web</h3>
-                            <h4 class="timeline-company">Bootcamp Full Stack</h4>
-                            <p class="timeline-description">
-                                Formación intensiva en desarrollo web full stack. Aprendizaje de HTML, CSS, 
-                                JavaScript, React, Node.js y bases de datos.
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-date">
+                                    <i class="fas fa-calendar"></i>
+                                    10 Dic 2024
+                                </span>
+                                <span class="article-time">
+                                    <i class="fas fa-clock"></i>
+                                    10 min
+                                </span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="#" class="article-link">
+                                    CSS Grid vs Flexbox: Cuándo usar cada uno
+                                </a>
+                            </h3>
+                            <p class="article-excerpt">
+                                Comprende las diferencias entre CSS Grid y Flexbox 
+                                y aprende cuándo es mejor usar cada tecnología...
                             </p>
-                            <div class="timeline-skills">
-                                <span class="timeline-skill">Full Stack</span>
-                                <span class="timeline-skill">MERN</span>
-                                <span class="timeline-skill">Git</span>
+                            <div class="article-tags">
+                                <span class="tag">CSS</span>
+                                <span class="tag">Grid</span>
+                                <span class="tag">Flexbox</span>
+                            </div>
+                            <div class="article-footer">
+                                <div class="article-stats">
+                                    <span class="stat">
+                                        <i class="fas fa-eye"></i>
+                                        1.5k
+                                    </span>
+                                    <span class="stat">
+                                        <i class="fas fa-heart"></i>
+                                        124
+                                    </span>
+                                    <span class="stat">
+                                        <i class="fas fa-comment"></i>
+                                        18
+                                    </span>
+                                </div>
+                                <button class="bookmark-btn">
+                                    <i class="fas fa-bookmark"></i>
+                                </button>
                             </div>
                         </div>
-                    </div>
+                    </article>
+
+                    <!-- Article 4 -->
+                    <article class="article-card" data-category="tutorials">
+                        <div class="article-image">
+                            <img src="/placeholder.svg?height=200&width=350" alt="Tutorial Node.js" loading="lazy">
+                            <div class="article-overlay">
+                                <div class="overlay-content">
+                                    <button class="read-btn">
+                                        <i class="fas fa-book-open"></i>
+                                        <span>Leer Artículo</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="article-category">Tutorial</div>
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-date">
+                                    <i class="fas fa-calendar"></i>
+                                    8 Dic 2024
+                                </span>
+                                <span class="article-time">
+                                    <i class="fas fa-clock"></i>
+                                    15 min
+                                </span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="#" class="article-link">
+                                    Crea tu primera API REST con Node.js y Express
+                                </a>
+                            </h3>
+                            <p class="article-excerpt">
+                                Tutorial paso a paso para crear una API REST 
+                                desde cero usando Node.js, Express y MongoDB...
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">Node.js</span>
+                                <span class="tag">Express</span>
+                                <span class="tag">API</span>
+                            </div>
+                            <div class="article-footer">
+                                <div class="article-stats">
+                                    <span class="stat">
+                                        <i class="fas fa-eye"></i>
+                                        2.1k
+                                    </span>
+                                    <span class="stat">
+                                        <i class="fas fa-heart"></i>
+                                        156
+                                    </span>
+                                    <span class="stat">
+                                        <i class="fas fa-comment"></i>
+                                        24
+                                    </span>
+                                </div>
+                                <button class="bookmark-btn">
+                                    <i class="fas fa-bookmark"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 5 -->
+                    <article class="article-card" data-category="javascript">
+                        <div class="article-image">
+                            <img src="/placeholder.svg?height=200&width=350" alt="Async JavaScript" loading="lazy">
+                            <div class="article-overlay">
+                                <div class="overlay-content">
+                                    <button class="read-btn">
+                                        <i class="fas fa-book-open"></i>
+                                        <span>Leer Artículo</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="article-category">JavaScript</div>
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-date">
+                                    <i class="fas fa-calendar"></i>
+                                    5 Dic 2024
+                                </span>
+                                <span class="article-time">
+                                    <i class="fas fa-clock"></i>
+                                    12 min
+                                </span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="#" class="article-link">
+                                    Async/Await vs Promises: Guía Práctica
+                                </a>
+                            </h3>
+                            <p class="article-excerpt">
+                                Aprende las diferencias entre Promises y Async/Await 
+                                con ejemplos prácticos y casos de uso reales...
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">Async</span>
+                                <span class="tag">Promises</span>
+                            </div>
+                            <div class="article-footer">
+                                <div class="article-stats">
+                                    <span class="stat">
+                                        <i class="fas fa-eye"></i>
+                                        1.8k
+                                    </span>
+                                    <span class="stat">
+                                        <i class="fas fa-heart"></i>
+                                        142
+                                    </span>
+                                    <span class="stat">
+                                        <i class="fas fa-comment"></i>
+                                        19
+                                    </span>
+                                </div>
+                                <button class="bookmark-btn">
+                                    <i class="fas fa-bookmark"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 6 -->
+                    <article class="article-card" data-category="react">
+                        <div class="article-image">
+                            <img src="/placeholder.svg?height=200&width=350" alt="React Context" loading="lazy">
+                            <div class="article-overlay">
+                                <div class="overlay-content">
+                                    <button class="read-btn">
+                                        <i class="fas fa-book-open"></i>
+                                        <span>Leer Artículo</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="article-category">React</div>
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-date">
+                                    <i class="fas fa-calendar"></i>
+                                    3 Dic 2024
+                                </span>
+                                <span class="article-time">
+                                    <i class="fas fa-clock"></i>
+                                    9 min
+                                </span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="#" class="article-link">
+                                    React Context API: Manejo de Estado Global
+                                </a>
+                            </h3>
+                            <p class="article-excerpt">
+                                Descubre cómo usar React Context API para manejar 
+                                el estado global sin librerías externas...
+                            </p>
+                            <div class="article-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">Context</span>
+                                <span class="tag">Estado</span>
+                            </div>
+                            <div class="article-footer">
+                                <div class="article-stats">
+                                    <span class="stat">
+                                        <i class="fas fa-eye"></i>
+                                        1.3k
+                                    </span>
+                                    <span class="stat">
+                                        <i class="fas fa-heart"></i>
+                                        98
+                                    </span>
+                                    <span class="stat">
+                                        <i class="fas fa-comment"></i>
+                                        15
+                                    </span>
+                                </div>
+                                <button class="bookmark-btn">
+                                    <i class="fas fa-bookmark"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Load More Button -->
+                <div class="load-more-container">
+                    <button class="btn btn-outline load-more-btn">
+                        <span class="btn-text">Cargar Más Artículos</span>
+                        <span class="btn-icon"><i class="fas fa-plus"></i></span>
+                    </button>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Sección Educación -->
-    <section id="education" class="education">
-        <div class="section-bg"></div>
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number">05</span>
-                <h2 class="section-title">
-                    <span class="title-text">Educación & Certificaciones</span>
-                    <div class="title-underline"></div>
-                </h2>
-            </div>
-            <div class="education-grid">
-                <div class="education-card" data-category="bootcamp">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                            <div class="icon-glow"></div>
+        <!-- Newsletter Section -->
+        <section class="newsletter-section" id="newsletter">
+            <div class="container">
+                <div class="newsletter-card">
+                    <div class="newsletter-content">
+                        <div class="newsletter-icon">
+                            <i class="fas fa-paper-plane"></i>
                         </div>
-                        <div class="card-badge">Bootcamp</div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Bootcamp Full Stack Development</h3>
-                        <h4 class="card-institution">TechAcademy Institute</h4>
-                        <div class="card-date">2023</div>
-                        <p class="card-description">
-                            Programa intensivo de 6 meses enfocado en tecnologías web modernas, 
-                            metodologías ágiles y desarrollo de proyectos reales.
+                        <h3 class="newsletter-title">¡No te pierdas nada!</h3>
+                        <p class="newsletter-description">
+                            Suscríbete a mi newsletter y recibe los últimos artículos, 
+                            tutoriales y tips de desarrollo directamente en tu email.
                         </p>
-                        <div class="card-skills">
-                            <span class="skill-badge">JavaScript</span>
-                            <span class="skill-badge">React</span>
-                            <span class="skill-badge">Node.js</span>
-                            <span class="skill-badge">MongoDB</span>
-                        </div>
+                        <form class="newsletter-form">
+                            <div class="form-group">
+                                <input type="email" placeholder="tu@email.com" class="newsletter-input" required>
+                                <button type="submit" class="newsletter-btn">
+                                    <span>Suscribirse</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                            <p class="newsletter-note">
+                                <i class="fas fa-shield-alt"></i>
+                                Sin spam. Solo contenido de calidad.
+                            </p>
+                        </form>
                     </div>
-                    <div class="card-glow"></div>
-                </div>
-
-                <div class="education-card" data-category="certification">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <i class="fas fa-certificate"></i>
-                            <div class="icon-glow"></div>
-                        </div>
-                        <div class="card-badge">Certificación</div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Responsive Web Design</h3>
-                        <h4 class="card-institution">freeCodeCamp</h4>
-                        <div class="card-date">2023</div>
-                        <p class="card-description">
-                            Certificación en diseño web responsivo, HTML5, CSS3, Flexbox, 
-                            CSS Grid y principios de accesibilidad web.
-                        </p>
-                        <div class="card-skills">
-                            <span class="skill-badge">HTML5</span>
-                            <span class="skill-badge">CSS3</span>
-                            <span class="skill-badge">Flexbox</span>
-                            <span class="skill-badge">Grid</span>
-                        </div>
-                    </div>
-                    <div class="card-glow"></div>
-                </div>
-
-                <div class="education-card" data-category="certification">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <i class="fas fa-code"></i>
-                            <div class="icon-glow"></div>
-                        </div>
-                        <div class="card-badge">Certificación</div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">JavaScript Algorithms</h3>
-                        <h4 class="card-institution">freeCodeCamp</h4>
-                        <div class="card-date">2023</div>
-                        <p class="card-description">
-                            Certificación en algoritmos y estructuras de datos con JavaScript, 
-                            programación funcional y desarrollo de proyectos.
-                        </p>
-                        <div class="card-skills">
-                            <span class="skill-badge">JavaScript</span>
-                            <span class="skill-badge">Algoritmos</span>
-                            <span class="skill-badge">ES6+</span>
-                            <span class="skill-badge">APIs</span>
-                        </div>
-                    </div>
-                    <div class="card-glow"></div>
-                </div>
-
-                <div class="education-card" data-category="university">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <i class="fas fa-university"></i>
-                            <div class="icon-glow"></div>
-                        </div>
-                        <div class="card-badge">Universidad</div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Ingeniería en Sistemas</h3>
-                        <h4 class="card-institution">Universidad Tecnológica</h4>
-                        <div class="card-date">2020 - 2024</div>
-                        <p class="card-description">
-                            Formación en fundamentos de programación, bases de datos, redes y 
-                            desarrollo de software con enfoque en tecnologías web.
-                        </p>
-                        <div class="card-skills">
-                            <span class="skill-badge">Programación</span>
-                            <span class="skill-badge">Bases de Datos</span>
-                            <span class="skill-badge">Algoritmos</span>
-                            <span class="skill-badge">Software Engineering</span>
-                        </div>
-                    </div>
-                    <div class="card-glow"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección Contacto -->
-    <section id="contact" class="contact">
-        <div class="section-bg"></div>
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number">06</span>
-                <h2 class="section-title">
-                    <span class="title-text">Contacto</span>
-                    <div class="title-underline"></div>
-                </h2>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="info-header">
-                        <h3 class="info-title">¡Conectemos!</h3>
-                        <p class="info-subtitle">
-                            ¿Buscas un desarrollador junior motivado y con ganas de crecer? 
-                            Me encantaría formar parte de tu equipo y contribuir con mi pasión por la tecnología.
-                        </p>
-                    </div>
-                    <div class="contact-items">
-                        <div class="contact-item">
-                            <div class="item-icon">
+                    <div class="newsletter-visual">
+                        <div class="floating-emails">
+                            <div class="email-icon">
                                 <i class="fas fa-envelope"></i>
                             </div>
-                            <div class="item-content">
-                                <span class="item-label">Email</span>
-                                <span class="item-value">junior.dev@email.com</span>
+                            <div class="email-icon">
+                                <i class="fas fa-envelope-open"></i>
                             </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="item-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div class="item-content">
-                                <span class="item-label">Teléfono</span>
-                                <span class="item-value">+1 (555) 987-6543</span>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="item-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="item-content">
-                                <span class="item-label">Ubicación</span>
-                                <span class="item-value">Ciudad, País</span>
+                            <div class="email-icon">
+                                <i class="fas fa-paper-plane"></i>
                             </div>
                         </div>
                     </div>
-                    <div class="social-links">
-                        <a href="#" class="social-link" data-tooltip="GitHub">
-                            <i class="fab fa-github"></i>
-                            <div class="link-glow"></div>
-                        </a>
-                        <a href="#" class="social-link" data-tooltip="LinkedIn">
-                            <i class="fab fa-linkedin"></i>
-                            <div class="link-glow"></div>
-                        </a>
-                        <a href="#" class="social-link" data-tooltip="Twitter">
-                            <i class="fab fa-twitter"></i>
-                            <div class="link-glow"></div>
-                        </a>
-                        <a href="#" class="social-link" data-tooltip="Instagram">
-                            <i class="fab fa-instagram"></i>
-                            <div class="link-glow"></div>
-                        </a>
-                    </div>
-                </div>
-                <div class="contact-form-container">
-                    <form class="contact-form" id="contact-form">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" required>
-                            <label for="name">Nombre</label>
-                            <div class="input-glow"></div>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" required>
-                            <label for="email">Email</label>
-                            <div class="input-glow"></div>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" id="subject" name="subject" required>
-                            <label for="subject">Asunto</label>
-                            <div class="input-glow"></div>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" required></textarea>
-                            <label for="message">Mensaje</label>
-                            <div class="input-glow"></div>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-submit">
-                            <span class="btn-text">Enviar Mensaje</span>
-                            <div class="btn-bg"></div>
-                            <div class="btn-glow"></div>
-                            <div class="btn-loading">
-                                <div class="loading-spinner"></div>
-                            </div>
-                        </button>
-                    </form>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-text">
-                    <p>&copy; 2024 Junior Developer. Todos los derechos reservados.</p>
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <div class="brand-logo">
+                            <span class="brand-icon">
+                                <i class="fas fa-code"></i>
+                            </span>
+                            <span class="brand-text">DevBlog</span>
+                        </div>
+                        <p class="footer-description">
+                            Un blog dedicado a compartir conocimiento sobre 
+                            desarrollo web y programación.
+                        </p>
+                        <div class="social-links">
+                            <a href="#" class="social-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="fab fa-dev"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="footer-links">
-                    <a href="#home">Inicio</a>
-                    <a href="#about">Sobre Mí</a>
-                    <a href="#contact">Contacto</a>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Categorías</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">JavaScript</a></li>
+                        <li><a href="#">React</a></li>
+                        <li><a href="#">CSS</a></li>
+                        <li><a href="#">Node.js</a></li>
+                        <li><a href="#">Tutoriales</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Recursos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Guías</a></li>
+                        <li><a href="#">Herramientas</a></li>
+                        <li><a href="#">Libros</a></li>
+                        <li><a href="#">Cursos</a></li>
+                        <li><a href="#">Snippets</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Contacto</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Sobre mí</a></li>
+                        <li><a href="#">Contacto</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                        <li><a href="#">RSS</a></li>
+                        <li><a href="#">Privacidad</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="footer-glow"></div>
+            
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2024 DevBlog. Todos los derechos reservados.</p>
+                </div>
+                <div class="footer-made">
+                    <p>Hecho con <i class="fas fa-heart"></i> por un desarrollador junior</p>
+                </div>
+            </div>
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
     <script src="script.js"></script>
 </body>
 </html>
